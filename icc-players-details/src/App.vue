@@ -63,20 +63,18 @@ export default {
     };
   },
   mounted() {
-    this.filterPlayers(); // Ensure that it applies default filters on mount
+    this.filterPlayers();
   },
   methods: {
     filterPlayers() {
       let filtered = this.originalPlayers;
 
-      // Filter by selected team
       if (this.selectedTeam !== "ALL") {
         filtered = filtered.filter(
           (player) => player.team_name === this.selectedTeam
         );
       }
 
-      // Filter by search query
       const query = this.searchQuery.toLowerCase();
       if (query) {
         filtered = filtered.filter(
@@ -89,7 +87,6 @@ export default {
       this.filteredPlayers = filtered;
     },
     searchPlayers() {
-      // This method is no longer needed if filterPlayers handles the search
       this.filterPlayers();
     },
   },
@@ -97,11 +94,9 @@ export default {
 </script>
 
 <style scoped>
-/* Scoped styles for App.vue */
-
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4; /* Light gray background */
+  background-color: #f4f4f4;
   margin: 0;
   padding: 0;
 }
@@ -111,14 +106,14 @@ body {
 }
 
 .navbar {
-  border-bottom: 1px solid #ddd; /* Light border for separation */
-  background-color: #ffffff; /* White background */
+  border-bottom: 1px solid #ddd;
+  background-color: #ffffff;
 }
 
 .navbar-brand {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #007bff; /* Primary color */
+  color: #007bff;
 }
 
 .navbar-nav .form-select {
@@ -147,16 +142,16 @@ body {
 }
 
 .container {
-  background-color: #ffffff; /* White background for main content */
+  background-color: #ffffff;
   border-radius: 0.25rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  margin-top: 20px; /* Spacing above the container */
+  margin-top: 20px;
 }
 
 h1 {
-  color: #343a40; /* Darker color for headings */
-  margin-bottom: 20px; /* Spacing below headings */
+  color: #343a40;
+  margin-bottom: 20px;
 }
 
 @media (max-width: 768px) {
